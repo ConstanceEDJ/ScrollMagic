@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8"> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=500" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
 	<meta name="author"	content="Jan Paepke (www.janpaepke.de)" />
-	<title>Section Wipes (manual) - Examples - ScrollMagic</title>
+	<title>Frotter la bavette</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../../css/normalize.css" type="text/css">
@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="../../js/lib/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/lib/highlight.pack.js"></script>
 	<script type="text/javascript" src="../../js/lib/modernizr.custom.min.js"></script>
-	<script type="text/javascript" src="../../js/examples.js"></script>
+
 	
 	<script type="text/javascript" src="../../js/lib/greensock/TweenMax.min.js"></script>
 	<script type="text/javascript" src="../../scrollmagic/uncompressed/ScrollMagic.js"></script>
@@ -31,12 +31,15 @@
 			<div class="scrollContent">
 				<section id="titlechart">
 					<div id="description">
-						<h1 class="badge gsap">Section Wipes (manual)</h1>
-						<h2>Wiping in content using custom movement</h2>
-						<p>To achieve this effect, simply create a full page container, that is pinned using the <code>setPin</code> method. Then create your panels inside of it and position them absolutely.</p>
-						<p>Now move in the panels using javascript and bind the movement to the scene progress.</p>
-						<p>The most convenient way to implement this is using GSAP and ScrollMagic's <code>setTween</code> method, as used in this example.</p>
-						<a href="#" class="viewsource">view source</a>
+						<h1>FROTTER LA BAVETTE</h1>
+						<h2>Immersion dans le cross bitume</h2>
+						<p>Si on veut écrire</p>
+						<video autoplay loop controls poster="../img/bavette.jpg" id="bgvid">
+    <source src="../video/yamaha.webm" type="video/webm">
+  	<source src="../video/comar.mp4" type="video/mp4">
+  Votre navigateur ne permet pas de lire les vidéos HTML5.
+</video>
+
 					</div>
 				</section>
 				<section class="demo" id="section-wipes">
@@ -52,18 +55,61 @@
 							position: absolute;
 						}
 					</style>
+
 					<div id="pinContainer">
 						<section class="panel blue">
-							<b>ONE</b>
+							<b>CHAPITRE I</b>
+							<img src="../img/bavette.jpg" alt="bavette" />
+						</section>
+						<section class="panel red">
+							<b>CHAPITRE Ia</b>
+							<video autoplay loop controls poster="../img/bavette.jpg" id="chapitreIa">
+    <source src="../video/jul.webm" type="video/webm">
+  	<source src="../video/jul.mp4" type="video/mp4">
+  Votre navigateur ne permet pas de lire les vidéos HTML5.
+</video>
+						</section>
+						<section class="panel pink">
+							<b>CHAPITRE Ib</b>
+						</section>
+							<section class="panel yellow">
+							<b>CHAPITRE Ic</b>
 						</section>
 						<section class="panel turqoise">
-							<b>TWO</b>
+							<b>CHAPITRE II</b>
+						</section>
+						<section class="panel bavette">
+							<b>CHAPITRE IIa</b>
+						</section>
+						<section class="panel black">
+							<b>CHAPITRE IIb</b>
+						</section>
+						<section class="panel grey">
+							<b>CHAPITRE IIc</b>
 						</section>
 						<section class="panel green">
-							<b>THREE</b>
+							<b>CHAPITRE III</b>
+						</section>
+						<section class="panel vertbouteille">
+							<b>CHAPITRE IIIa</b>
+						</section>
+						<section class="panel vertyamaha">
+							<b>CHAPITRE IIIb</b>
+						</section>
+						<section class="panel vertforet">
+							<b>CHAPITRE IIIc</b>
 						</section>
 						<section class="panel bordeaux">
-							<b>FOUR</b>
+							<b>CHAPITRE IV</b>
+						</section>
+						<section class="panel cramoisi">
+							<b>CHAPITRE IVa</b>
+						</section>
+						<section class="panel violet">
+							<b>CHAPITRE IVb</b>
+						</section>
+						<section class="panel pamplemousse">
+							<b>CHAPITRE IVc</b>
 						</section>
 					</div>
 					<script>
@@ -71,11 +117,24 @@
 							// init
 							var controller = new ScrollMagic.Controller();
 
+
 							// define movement of panels
 							var wipeAnimation = new TimelineMax()
-								.fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+								.fromTo("section.panel.red", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.pink", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIII FROTTER LA BAVETTTEEEEE EN Y)
+								.fromTo("section.panel.yellow", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON VEUT)
+								.fromTo("section.panel.turqoise", 1, {x: "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+								.fromTo("section.panel.bavette", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.black", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.grey", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
 								.fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
-								.fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+								.fromTo("section.panel.vertbouteille", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.vertyamaha", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.vertforet", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.bordeaux",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+								.fromTo("section.panel.cramoisi", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.violet", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
+								.fromTo("section.panel.pamplemousse", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
 
 							// create scene to pin and link animation
 							new ScrollMagic.Scene({

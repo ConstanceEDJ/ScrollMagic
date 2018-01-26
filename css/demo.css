@@ -240,7 +240,7 @@ h3 {
 }
 #info .content {
     width: 645px;
-    text-align: left;
+    text-align: right;
     display: inline-block;
 }
 #info .darkside {
