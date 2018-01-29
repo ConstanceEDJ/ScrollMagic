@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
 	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
 	<meta name="author"	content="Jan Paepke (www.janpaepke.de)" />
 	<title>Frotter la bavette</title>
@@ -37,8 +37,10 @@
 						<video autoplay loop controls poster="../img/bavette.jpg" id="bgvid">
     <source src="../video/yamaha.webm" type="video/webm">
   	<source src="../video/comar.mp4" type="video/mp4">
+
   Votre navigateur ne permet pas de lire les vidéos HTML5.
 </video>
+
 
 					</div>
 				</section>
@@ -59,14 +61,15 @@
 					<div id="pinContainer">
 						<section class="panel blue">
 							<b>CHAPITRE I</b>
-							<img src="../img/bavette.jpg" alt="bavette" />
+							<img src="../img/urbancross.jpg" alt="bavette" />
 						</section>
+
 						<section class="panel red">
 							<b>CHAPITRE Ia</b>
-							<video autoplay loop controls poster="../img/bavette.jpg" id="chapitreIa">
+							<video autoplay loop id="chapitreIa">
     <source src="../video/jul.webm" type="video/webm">
   	<source src="../video/jul.mp4" type="video/mp4">
-  Votre navigateur ne permet pas de lire les vidéos HTML5.
+  Votre navigateur ne permet pas de lire les vidéos HTML5. >> A noter ici : le navigateur Chrome ne lance pas l'autoplay, mais Firevox si. Pourquoi?
 </video>
 						</section>
 						<section class="panel pink">
@@ -115,8 +118,10 @@
 					<script>
 						$(function () { // wait for document ready
 							// init
+
 							var controller = new ScrollMagic.Controller();
 
+						
 
 							// define movement of panels
 							var wipeAnimation = new TimelineMax()
@@ -136,8 +141,55 @@
 								.fromTo("section.panel.violet", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
 								.fromTo("section.panel.pamplemousse", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
 
+
+								var bgvidVid = document.getElementById('bgvid')
+
+
+// init controller
+						var controller = new ScrollMagic.Controller();
+
+						// build scene
+						var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500})
+										.addTo(controller)
+										.addIndicators() // add indicators (requires plugin)
+
+										.on("enter", function () {
+											bgvidVid.play();
+
+										})
+										.on("leave", function () {
+											bgvidVid.pause();
+								
+										})
+
+							
+							var chapitreIaVid = document.getElementById('chapitreIa')
+
+
+// init controller
+						var controller = new ScrollMagic.Controller();
+
+						// build scene
+						var scene = new ScrollMagic.Scene({triggerElement: "#chapitreIa", duration: 500})
+										.addTo(controller)
+										.addIndicators() // add indicators (requires plugin)
+
+										.on("enter", function () {
+											chapitreIaVid.play();
+
+										})
+										.on("leave", function () {
+											chapitreIaVid.pause();
+								
+										})
+
+
+
+										
+
+
 							// create scene to pin and link animation
-							new ScrollMagic.Scene({
+							var scene = new ScrollMagic.Scene({
 									triggerElement: "#pinContainer",
 									triggerHook: "onLeave",
 									duration: "300%"
@@ -146,7 +198,11 @@
 								.setTween(wipeAnimation)
 								.addIndicators() // add indicators (requires plugin)
 								.addTo(controller);
+								
 						});
+
+
+
 					</script>
 				</section>
 			</div>

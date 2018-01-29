@@ -409,3 +409,25 @@ $(document).trigger("orientationchange");
 
 
 
+
+var chapitreIaVid = document.getElementById('chapitreIa')
+
+
+// init controller
+						var controller = new ScrollMagic.Controller();
+
+						// build scene
+						var scene = new ScrollMagic.Scene({triggerElement: "#chapitreIa", duration: 100})
+										.addTo(controller)
+										.addIndicators() // add indicators (requires plugin)
+
+										.on("enter", function () {
+											chapitreIaVid.play();
+
+										})
+										.on("leave", function () {
+											chapitreIaVid.pause();
+								
+										})
+
+

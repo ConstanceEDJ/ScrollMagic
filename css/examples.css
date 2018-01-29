@@ -120,12 +120,6 @@ section.demo * {
 	font-size: 13px;
 }
 
-video#chapitreIa {position: fixed; right: 0; bottom: 0;
-	min-width: 100%; min-height: 100%;
-	width: auto; height: auto; z-index: -100;
-	background-size: cover;
-}
-
 section.demo {
 	font-size: 0;
 	text-align: center;
@@ -145,6 +139,7 @@ section.demo.doublewidth, .spacer.doublewidth {
 .horizontal section.demo.fullwidth {
 	min-width: 100%;
 }
+
 /*
 	Elements
 */
@@ -1044,8 +1039,19 @@ a.viewsource:before {
 	background-image: none;
 }
 .demo#section-slides .panel, .demo#section-wipes .panel {
-	background-image: url("../img/example_bg_spacer_v.gif");
+	background-image: url("../img/bavette.jpg");
 }
+
+video#chapitreIa {
+	position: fixed; right: 0; bottom: 0;
+	min-width: 100%; min-height: 100%;
+	width: auto; height: auto; z-index: -100;
+	background: url(bavette.jpg) no-repeat;
+	background-size: cover;
+
+}
+
+
 .demo#section-wipes #pinContainer .turqoise, .demo#section-wipes #pinContainer .green, .demo#section-slides #slideContainer .panel {
 	background-image: url("../img/example_bg_spacer_h.gif");
 }
