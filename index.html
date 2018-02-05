@@ -26,7 +26,15 @@
     <script type="text/javascript" src="scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
 </head>
 <body>
-    <div class="scrollContent">
+   <h1>FROTTER LA BAVETTE</h1>
+        <h2>Immersion dans le cross bitume</h2>
+            <video autoplay loop poster="img/bavette.jpg" id="bgvid">
+                <source src="video/yamaha.webm" type="video/webm">
+                <source src="video/comar.mp4" type="video/mp4">
+Votre navigateur ne permet pas de lire les vidéos HTML5.
+            </video>
+
+
     <style>
         #pinContainer {
             height: 100vh;
@@ -44,6 +52,7 @@
         section.panel.pink { background: pink ; }
         section.panel.yellow { background: yellow ; }
         section.panel.turqoise { background: cyan ; }
+        section.panel.black { background: black ; }
     </style>
 
 
@@ -53,6 +62,11 @@
         </section>
         <section class="panel red">
             <h4>panel.red</h4>
+                <video autoplay loop id="chapitreIa">
+                    <source src="video/jul.webm" type="video/webm">
+                    <source src="video/jul.mp4" type="video/mp4">
+Votre navigateur ne permet pas de lire les vidéos HTML5. >> A noter ici : le navigateur Chrome ne lance pas l'autoplay, mais Firevox si. Pourquoi?
+                </video>
         </section>
         <section class="panel pink">
             <h4>panel.pink</h4>
@@ -62,6 +76,9 @@
         </section>
         <section class="panel turqoise">
             <h4>panel.turqoise</h4>
+        </section>
+         <section class="panel black">
+            <h4>panel.black</h4>
         </section>
     </div>
 
@@ -77,7 +94,7 @@
                 .fromTo("section.panel.pink", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIII FROTTER LA BAVETTTEEEEE EN Y)
                 .fromTo("section.panel.yellow", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON VEUT)
                 .fromTo("section.panel.turqoise", 1, {x: "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
-
+                .fromTo("section.panel.black", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII) I REPEAT : J'AI REUSSI JE SUIS PAS UNE IMPOSTRICE VOILA CHUT JPP GNAGNAGNA DIT RAPH WESH MERCI CASSEDEDI A JAN, ADJOINT EN CHEF POUR LE SETPIN SANS QUOI RIEN N'AURAIT ETE POSSIBLE
 
             // create scene to pin and link animation
             var scene = new ScrollMagic.Scene({
@@ -89,7 +106,25 @@
                 .setTween(wipeAnimation)
                 .addIndicators() 
                 .addTo(controller);
-        });
+                });
+
+            var controller2 = new ScrollMagic.Controller();
+            var bgvidVid = document.getElementById('bgvid')
+
+            var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500})
+                .addTo(controller2)
+                .addIndicators() // add indicators (requires plugin)
+                .on("enter", function () {
+                bgvidVid.play();
+                })
+                .on("leave", function () {
+                bgvidVid.pause();
+                })
+
+
+
+
+        
     </script>
 </body>
 </html>
