@@ -1039,14 +1039,14 @@ a.viewsource:before {
 	background-image: none;
 }
 .demo#section-slides .panel, .demo#section-wipes .panel {
-	background-image: url("../img/bavette.jpg");
+	background-image: url("img/bavette.jpg");
 }
 
 video#chapitreIa {
 	position: fixed; right: 0; bottom: 0;
 	min-width: 100%; min-height: 100%;
 	width: auto; height: auto; z-index: -100;
-	background: url(bavette.jpg) no-repeat;
+	background: url(img/bavette.jpg) no-repeat;
 	background-size: cover;
 
 }

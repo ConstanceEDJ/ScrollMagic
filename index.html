@@ -28,7 +28,7 @@
 <body>
    <h1>FROTTER LA BAVETTE</h1>
         <h2>Immersion dans le cross bitume</h2>
-            <video autoplay loop poster="img/bavette.jpg" id="bgvid">
+            <video autoplay loop id="bgvid">
                 <source src="video/yamaha.webm" type="video/webm">
                 <source src="video/comar.mp4" type="video/mp4">
 Votre navigateur ne permet pas de lire les vidéos HTML5.
@@ -87,6 +87,14 @@ Votre navigateur ne permet pas de lire les vidéos HTML5. >> A noter ici : le na
         $(function () { 
             var controller = new ScrollMagic.Controller();
 
+
+            // J'ai l'impression qu'il y avait moins de bugs quand on ajoutait le controller à la scène et pas l'inverse, là google dit "invalid argument" pour "addscene"
+            controller.addScene([
+                scene1,
+                scene2,
+                scene3,
+            ]);
+
             // define movement of panels
             var wipeAnimation = new TimelineMax()
                 .fromTo("section.panel.blue", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
@@ -97,7 +105,7 @@ Votre navigateur ne permet pas de lire les vidéos HTML5. >> A noter ici : le na
                 .fromTo("section.panel.black", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII) I REPEAT : J'AI REUSSI JE SUIS PAS UNE IMPOSTRICE VOILA CHUT JPP GNAGNAGNA DIT RAPH WESH MERCI CASSEDEDI A JAN, ADJOINT EN CHEF POUR LE SETPIN SANS QUOI RIEN N'AURAIT ETE POSSIBLE
 
             // create scene to pin and link animation
-            var scene = new ScrollMagic.Scene({
+            var scene1 = new ScrollMagic.Scene({
                     triggerElement: "#pinContainer",
                     triggerHook: "onLeave",
                     duration: "500%",
@@ -108,17 +116,34 @@ Votre navigateur ne permet pas de lire les vidéos HTML5. >> A noter ici : le na
                 .addTo(controller);
                 });
 
-            var controller2 = new ScrollMagic.Controller();
+
             var bgvidVid = document.getElementById('bgvid')
 
-            var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500})
-                .addTo(controller2)
+            // Google se plaint que #trigger was not found, mais quand je mets bgvid ça ne marche pas.
+            var scene2 = new ScrollMagic.Scene({
+                    triggerElement: "#trigger", 
+                    duration: 500,
+                })
                 .addIndicators() // add indicators (requires plugin)
                 .on("enter", function () {
                 bgvidVid.play();
                 })
                 .on("leave", function () {
                 bgvidVid.pause();
+                })
+
+            var chapitreIaVid = document.getElementById('chapitreIa')
+
+            var scene3 = new ScrollMagic.Scene({
+                    triggerElement: "#chapitreIa", 
+                    duration: 500,
+                })
+                .addIndicators() // add indicators (requires plugin)
+                .on("enter", function () {
+                chapitreIaVid.play();
+                })
+                .on("leave", function () {
+                chapitreIaVid.pause();
                 })
 
 
