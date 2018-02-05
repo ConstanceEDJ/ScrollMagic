@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <title>Frotter la bavette</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css" type="text/css">
 
 
     <script type="text/javascript" src="js/lib/jquery.min.js"></script>
@@ -19,9 +24,11 @@
     <script type="text/javascript" src="scrollmagic/uncompressed/ScrollMagic.js"></script>
     <script type="text/javascript" src="scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
     <script type="text/javascript" src="scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
-
+</head>
+<body>
+    <div class="scrollContent">
     <style>
-        main {
+        #pinContainer {
             height: 100vh;
             width: 100vw;
             overflow: hidden;
@@ -38,9 +45,9 @@
         section.panel.yellow { background: yellow ; }
         section.panel.turqoise { background: cyan ; }
     </style>
-</head>
-<body>
-    <main>
+
+
+    <div id="pinContainer">
         <section class="panel blue">
             <h4>panel.blue</h4>
         </section>
@@ -56,7 +63,7 @@
         <section class="panel turqoise">
             <h4>panel.turqoise</h4>
         </section>
-    </main>
+    </div>
 
 
     <script>
@@ -74,12 +81,14 @@
 
             // create scene to pin and link animation
             var scene = new ScrollMagic.Scene({
-                    triggerElement: "main",
+                    triggerElement: "#pinContainer",
                     triggerHook: "onLeave",
-                    duration: 0
+                    duration: "500%",
                 })
+                .setPin("#pinContainer")
                 .setTween(wipeAnimation)
                 .addIndicators() 
+                .addTo(controller);
         });
     </script>
 </body>
