@@ -34,14 +34,6 @@
 						<h1>FROTTER LA BAVETTE</h1>
 						<h2>Immersion dans le cross bitume</h2>
 						<p>Si on veut écrire</p>
-						<video autoplay loop controls poster="../img/bavette.jpg" id="bgvid">
-    <source src="../video/yamaha.webm" type="video/webm">
-  	<source src="../video/comar.mp4" type="video/mp4">
-
-  Votre navigateur ne permet pas de lire les vidéos HTML5.
-</video>
-
-
 					</div>
 				</section>
 				<section class="demo" id="section-wipes">
@@ -61,7 +53,12 @@
 					<div id="pinContainer">
 						<section class="panel blue">
 							<b>CHAPITRE I</b>
-							<img src="../img/urbancross.jpg" alt="bavette" />
+
+							<video autoplay loop controls="no" poster="../img/bavette.jpg" id="bgvid">
+							    <source src="../video/yamaha.webm" type="video/webm">
+							  	<source src="../video/comar.mp4" type="video/mp4">
+							  Votre navigateur ne permet pas de lire les vidéos HTML5.
+							</video>
 						</section>
 
 						<section class="panel red">
@@ -125,6 +122,7 @@
 
 							// define movement of panels
 							var wipeAnimation = new TimelineMax()
+								.fromTo("section.panel.blue", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
 								.fromTo("section.panel.red", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIIIII)
 								.fromTo("section.panel.pink", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON A REUSSIIIIII FROTTER LA BAVETTTEEEEE EN Y)
 								.fromTo("section.panel.yellow", 1, {y: "100%"}, {y: "0%", ease: Linear.easeNone})  // in from bottom (CE QU'ON VEUT)
@@ -192,7 +190,7 @@
 							var scene = new ScrollMagic.Scene({
 									triggerElement: "#pinContainer",
 									triggerHook: "onLeave",
-									duration: "300%"
+									duration: 0
 								})
 								.setPin("#pinContainer")
 								.setTween(wipeAnimation)
